@@ -39,15 +39,10 @@ public class MapperConfig implements OrikaMapperFactoryConfigurer {
         }
     }
 
-    private static class MessageMapper extends BidirectionalConverter<Message, MessageDto> {
+    private static class MessageMapper extends BidirectionalConverter<ReceivedMessage, MessageDto> {
 
         @Override
-        public boolean canConvert(Type<?> sourceType, Type<?> destinationType) {
-            return sourceType.isAssignableFrom(ReceivedMessage.class) || destinationType.isAssignableFrom(ReceivedMessage.class);
-        }
-
-        @Override
-        public MessageDto convertTo(Message message, Type<MessageDto> type, MappingContext mappingContext) {
+        public MessageDto convertTo(ReceivedMessage message, Type<MessageDto> type, MappingContext mappingContext) {
             MessageDto messageDto = new MessageDto()
                     .setMessageId(message.getId())
                     .setContent(message.getContentRaw());
@@ -55,11 +50,10 @@ public class MapperConfig implements OrikaMapperFactoryConfigurer {
         }
 
         @Override
-        public Message convertFrom(MessageDto messageDto, Type<Message> type, MappingContext mappingContext) {
-            Message message = new MessageBuilder()
+        public ReceivedMessage convertFrom(MessageDto messageDto, Type<ReceivedMessage> type, MappingContext mappingContext) {
+            return (ReceivedMessage) new MessageBuilder()
                     .setContent(messageDto.getContent())
                     .build();
-            return message;
         }
     }
 
