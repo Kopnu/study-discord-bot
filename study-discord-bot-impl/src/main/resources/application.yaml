@@ -4,3 +4,9 @@ logging:
   level:
     ROOT: info
     love.korni: info
+
+server:
+  config:
+    category: DINAMIC (S)
+    channel: Канал
+    channelLivenessSec: 10

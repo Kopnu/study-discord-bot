@@ -11,8 +11,6 @@ import javax.annotation.Nonnull;
 @Component
 public class ReadyListener extends ListenerAdapter {
 
-    private static final String CATEGORY_NAME = "test_category";
-
     @Override
     public void onReady(@Nonnull ReadyEvent event) {
         log.info("Готов к работе с {} сервером(-ами)", event.getGuildAvailableCount());

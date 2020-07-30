@@ -1,15 +1,15 @@
 package love.korni.studydiscordbot.config;
 
-import love.korni.studydiscordbot.listeners.MessageListener;
-import love.korni.studydiscordbot.listeners.ReadyListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.security.auth.login.LoginException;
+import java.util.List;
 
 @Configuration
 public class JdaConfig {
@@ -18,14 +18,11 @@ public class JdaConfig {
     private String token;
 
     @Bean
-    public JDA jda(MessageListener messageListener, ReadyListener readyListener) throws LoginException {
+    public JDA jda(List<ListenerAdapter> listenerAdapters) throws LoginException {
         JDA jda = JDABuilder.createDefault(token)
                 .setActivity(Activity.playing("Mention me & type help"))
                 .build();
-        jda.addEventListener(
-                messageListener,
-                readyListener
-        );
+        jda.addEventListener(listenerAdapters.toArray());
         return jda;
     }
 
