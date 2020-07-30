@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class VoiceChannelListener extends ListenerAdapter {
 
-    private static Map<VoiceChannel, ScheduledFuture<?>> VOICE_CHANNELS_TO_DELETE = new HashMap<>();
+    private static final Map<VoiceChannel, ScheduledFuture<?>> VOICE_CHANNELS_TO_DELETE = new HashMap<>();
 
     private final ChannelService channelService;
     private final CategoryService categoryService;
