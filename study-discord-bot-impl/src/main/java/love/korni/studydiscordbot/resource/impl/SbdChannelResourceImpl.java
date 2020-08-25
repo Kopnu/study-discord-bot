@@ -2,17 +2,17 @@ package love.korni.studydiscordbot.resource.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import love.korni.studydiscordbot.config.converter.Converter;
+import love.korni.studydiscordbot.config.converter.MessageConverter;
 import love.korni.studydiscordbot.dto.ChannelDto;
 import love.korni.studydiscordbot.dto.MessageDto;
 import love.korni.studydiscordbot.resource.SbdChannelResource;
 import love.korni.studydiscordbot.service.ChannelService;
 import ma.glasnost.orika.MapperFacade;
 import net.dv8tion.jda.api.entities.Message;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Objects;
 
 @Slf4j
 @RestController
@@ -21,6 +21,7 @@ public class SbdChannelResourceImpl implements SbdChannelResource {
 
     private final MapperFacade mapperFacade;
     private final ChannelService channelService;
+    private final MessageConverter messageConverter;
 
     @Override
     public List<ChannelDto> getTextChannels(String guildId) {
@@ -33,7 +34,7 @@ public class SbdChannelResourceImpl implements SbdChannelResource {
     @Override
     public void sendMessageToChannel(String channelId, MessageDto messageDto) {
         log.info("sendMessageToChannel() - start, channelId = {}, messageDto = {}", channelId, messageDto);
-        Message message = mapperFacade.map(messageDto, Message.class);
+        Message message = messageConverter.convertFrom(messageDto);
         channelService.sendMessageToChannel(channelId, message);
         log.debug("sendMessageToChannel() - end");
     }
