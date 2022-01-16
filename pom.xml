@@ -27,6 +27,8 @@
         <start-class>love.korni.studydiscordbot.StudyDiscordBotApplication</start-class>
 
         <JDA.version>4.2.0_180</JDA.version>
+        <spring-boot-starter-jda.version>v0.2.2</spring-boot-starter-jda.version>
+
         <commons-lang3.version>3.11</commons-lang3.version>
         <testng.version>7.1.0</testng.version>
         <mockito-all.version>1.10.19</mockito-all.version>
@@ -44,6 +46,10 @@
             <name>jcenter-bintray</name>
             <url>https://jcenter.bintray.com</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencyManagement>
@@ -57,6 +63,11 @@
             </dependency>
 
             <!-- JDA -->
+            <dependency>
+                <groupId>com.github.Kopnu</groupId>
+                <artifactId>spring-boot-starter-jda</artifactId>
+                <version>${spring-boot-starter-jda.version}</version>
+            </dependency>
             <dependency>
                 <groupId>net.dv8tion</groupId>
                 <artifactId>JDA</artifactId>

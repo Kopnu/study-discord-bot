@@ -1,5 +1,3 @@
-token: PASTE_YOUR_TOKEN_HERE
-
 logging:
   level:
     ROOT: info
@@ -10,3 +8,10 @@ server:
     category: DINAMIC (S)
     channel: Канал
     channelLivenessSec: 10
+
+spring:
+  jda:
+    token: ${PASTE_YOUR_TOKEN_HERE}
+    activity:
+      type: DEFAULT
+      activity: Mention me & type help
