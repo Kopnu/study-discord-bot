@@ -32,7 +32,7 @@
         <commons-lang3.version>3.11</commons-lang3.version>
         <testng.version>7.1.0</testng.version>
         <mockito-all.version>1.10.19</mockito-all.version>
-        <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
+        <spring.boot.version>2.5.12</spring.boot.version>
         <lombok.version>1.18.12</lombok.version>
         <orika-core.version>1.5.4</orika-core.version>
         <orika-spring-boot-starter.version>1.9.0</orika-spring-boot-starter.version>
