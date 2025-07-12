@@ -29,7 +29,7 @@
         <JDA.version>4.2.0_180</JDA.version>
         <spring-boot-starter-jda.version>v0.2.2</spring-boot-starter-jda.version>
 
-        <commons-lang3.version>3.11</commons-lang3.version>
+        <commons-lang3.version>3.18.0</commons-lang3.version>
         <testng.version>7.5.1</testng.version>
         <mockito-all.version>1.10.19</mockito-all.version>
         <spring.boot.version>2.5.12</spring.boot.version>
